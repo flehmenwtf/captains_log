@@ -1,0 +1,14 @@
+{
+  "name": "draculas-logbook-scripts",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "generate": "node generate-daily-log.js",
+    "logoff": "node log-off.js",
+    "check": "node --check generate-daily-log.js && node --check log-off.js && node --check lib/*.js"
+  }
+}
