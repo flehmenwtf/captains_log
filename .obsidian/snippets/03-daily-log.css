@@ -1,0 +1,42 @@
+/* Daily log specific styles */
+/* Callout: overdue tasks */
+.callout[data-callout="overdue"] {
+  --callout-color: 239, 78, 86; /* #EF4E56 red */
+  font-family: var(--font-code);
+  font-size: 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+/* Callout: eyebrow metadata */
+.callout[data-callout="meta"] {
+  --callout-color: 200, 200, 200;
+  font-family: var(--font-code);
+  font-size: 0.65em;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  background: transparent;
+  border: none;
+}
+
+/* Callout: section-breaker */
+.callout[data-callout="break"] {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+/* Style HR as the ▀ breaker line */
+.daily-log hr {
+  border: none;
+  height: 2px;
+  background: var(--text-muted);
+  opacity: 0.5;
+}
+
+/* Tag-like styling for inline code in daily log context */
+.daily-log code {
+  font-family: var(--font-code);
+  font-size: 0.75em;
+  text-transform: uppercase;
+}

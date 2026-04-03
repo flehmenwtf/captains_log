@@ -1,0 +1,32 @@
+{
+  "vault_path": "/Users/cobra/castle/blood-cauldron/",
+  "weather": {
+    "api_key": "cab38e89463f4b6902162d1a069a340e",
+    "lat": 45.6387,
+    "lon": -122.6615,
+    "units": "imperial",
+    "timeout_ms": 8000
+  },
+  "reminders_lists": {
+    "life": "Life",
+    "work": "Work",
+    "flehmen": "Flehmen",
+    "plants": "Plants",
+    "workouts": "Workouts",
+    "worms": "Worms"
+  },
+  "notes": {
+    "account": "iCloud",
+    "lists_folder": "Lists",
+    "projects_folder": "Projects"
+  },
+  "calendar": {
+    "calendars": ["Home", "Work"]
+  },
+  "time_blocks": {
+    "start_hour": 8,
+    "end_hour": 18
+  },
+  "worms_count": 3,
+  "numero_uno_tag": "#numero_uno"
+}
