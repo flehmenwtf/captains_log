@@ -6,60 +6,8 @@ A daily logging system built for Obsidian on macOS using Apple Reminders, Calend
 
 ## 0) What this does
 
-- **Morning:** generates today’s log note in your vault (`logbook/YYYY/MM/YYYY.MM.DD-log.md`).
-- **Evening:** parses your daily note and writes tracking summaries (hours/habits scaffolding).
-- **During day:** use Templater snippets for meeting/project/rolodex/tomorrow-first-move blocks.
-
----
-
-## 1) One-time setup (5–10 minutes)
-
-1. Copy this repo’s contents into your Obsidian vault root at:
-   - `/Users/cobra/castle/blood-cauldron/`
-2. Confirm Node is installed:
-   ```bash
-   node -v
-   ```
-   You want **v22+**.
-3. (Optional) install dependencies in `scripts/` if you later add any:
-   ```bash
-   cd /Users/cobra/castle/blood-cauldron/scripts
-   npm install
-   ```
-4. Verify config is set (already populated in this repo):
-   - `scripts/config.json`
-   - vault path
-   - weather API key
-   - reminders/calendar/note folder names
-
----
-
-## 2) macOS permissions (first run)
-
-On first run, macOS should prompt to allow automation access to:
-- **Reminders**
-- **Notes**
-- **Calendar**
-
-Click **Allow** for each prompt.
-
-If prompts do not appear or you clicked Don’t Allow:
-- macOS Settings → Privacy & Security → Automation
-- Enable permissions for Terminal/iTerm (or your launcher app) to control those apps.
-
----
-
-## 3) Daily usage
-
-## Morning generation
-
-Run:
-```bash
-node /Users/cobra/castle/blood-cauldron/scripts/generate-daily-log.js
-```
-
-Expected result:
-- Creates today’s file at `logbook/YYYY/MM/YYYY.MM.DD-log.md`
+- **Morning:** generates today’s log note in your vault (`logbook/YYYY.MM.DD-log.md`).
+- Creates today’s file at `logbook/YYYY.MM.DD-log.md`
 - Opens the note in Obsidian (if URI opening succeeds)
 
 
@@ -118,6 +66,18 @@ You are not running on macOS. Run scripts on your Mac.
 
 ### “not authorized to send Apple events”
 Grant permissions in Privacy & Security → Automation.
+
+### “AppleEvent timed out (-1712)”
+Try a fallback run that skips Apple app reads but still generates the note:
+```bash
+SKIP_APPLE_INTEGRATIONS=1 node /Users/cobra/castle/blood-cauldron/scripts/generate-daily-log.js
+```
+Then re-run normally after permissions are granted and apps are responsive.
+
+### “It looks stalled / no prompt returns”
+- The generator now prints progress logs (`starting`, `note created`, `done`).
+- If weather is slow, it auto-times out (default 8s) and continues with fallback values.
+- If you already have today’s note, it exits with `note already exists`.
 
 ### Daily log didn’t generate
 - Check if today’s note already exists (script exits silently if so).

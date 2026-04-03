@@ -4,7 +4,8 @@
     "api_key": "cab38e89463f4b6902162d1a069a340e",
     "lat": 45.6387,
     "lon": -122.6615,
-    "units": "imperial"
+    "units": "imperial",
+    "timeout_ms": 8000
   },
   "reminders_lists": {
     "life": "Life",

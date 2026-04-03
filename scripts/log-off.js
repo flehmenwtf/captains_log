@@ -80,7 +80,7 @@ function main() {
   const yyyy = now.getFullYear();
   const mm = String(now.getMonth() + 1).padStart(2, '0');
   const dd = String(now.getDate()).padStart(2, '0');
-  const logPath = path.join(config.vault_path, 'logbook', String(yyyy), mm, `${yyyy}.${mm}.${dd}-log.md`);
+  const logPath = path.join(config.vault_path, 'logbook', `${yyyy}.${mm}.${dd}-log.md`);
 
   if (!fs.existsSync(logPath)) {
     throw new Error(`Daily log not found: ${logPath}`);
